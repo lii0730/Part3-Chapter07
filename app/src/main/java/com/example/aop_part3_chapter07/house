@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id" : 1,
+      "title" : "강남역!! 최저가!! 레지던스!!",
+      "price" : "23,000원",
+      "lat" : 37.382225,
+      "lng" : 126.656277,
+      "imageUrl" : "https://i.picsum.photos/id/266/200/200.jpg?hmac=gOu6kjZljo9d4wdKoXa6CepA5W07XTIynwZmcl-b1AM"
+    },
+    {
+      "id" : 2,
+      "title" : "강남역!! 위치 초근접!!",
+      "price" : "90,000원",
+      "lat" : 37.387749,
+      "lng" : 126.653960,
+      "imageUrl" : "https://i.picsum.photos/id/541/200/200.jpg?hmac=FPYg43H-9McYNZu4fnac6itnn3Ly9eOJRpZLLnyXuVY"
+    }
+  ]
+}
