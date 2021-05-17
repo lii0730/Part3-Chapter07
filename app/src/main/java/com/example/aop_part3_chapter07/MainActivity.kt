@@ -45,13 +45,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClickLis
         findViewById(R.id.recyclerView)
     }
 
+    //TODO: bottom_sheet.xml 이 activity_main.xml 에 include 되어 있기 때문에 바로 접근 가능
     private val bottomSheetTitleTextView : TextView by lazy {
         findViewById(R.id.bottomSheetTitleTextView)
     }
 
     private val houseViewPagerAdapter = HouseViewPagerAdapter(itemClicked = {
+        //TODO: ViewPager 클릭한 경우 공유하기
         val intent = Intent()
             .apply {
+                //TODO: Android ShareSheet 사용
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "[지금 이 가격에 예약하세요!!] ${it.title} ${it.price} 사진보기 : ${it.imageUrl} ")
                 type = "text/plain"
@@ -66,18 +69,23 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClickLis
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this::onMapReady)
 
+        //TODO: 위치 추적기능 사용 목적 / 권한 필요
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
+        //TODO: ViewPager Adapter 연결
         houseViewPager.adapter = houseViewPagerAdapter
+
+        //TODO: 숙소목록 RecyclerView Adapter 연결
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         houseViewPager.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
+                //TODO: 선택된 ViewPager 에 대한 처리, ViewPager 아이템에 해당하는 위치로 카메라 이동
                 super.onPageSelected(position)
                 val selectedHouseModel = houseViewPagerAdapter.currentList[position]
                 val cameraUpdate = CameraUpdate.scrollTo(LatLng(selectedHouseModel.lat, selectedHouseModel.lng))
-                    .animate(CameraAnimation.Fly)
+                    .animate(CameraAnimation.Fly, 1500)
                 naverMap.moveCamera(cameraUpdate)
             }
         })
@@ -147,6 +155,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClickLis
                     override fun onFailure(call: Call<HouseDto>, t: Throwable) {
                         //TODO: 실패처리에 대한 구현
                         Toast.makeText(this@MainActivity, "정보를 불러오지 못했습니다", Toast.LENGTH_SHORT).show()
+                        Log.i("getHouseListFromAPI", t.toString())
                     }
                 })
         }
@@ -208,6 +217,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClickLis
         // overlay는 marker들의 총 집합?
 
         val selectedModel = houseViewPagerAdapter.currentList.firstOrNull {
+            //TODO: 조건이 맞는 항목중 첫번째 항목, 조건이 맞지 않으면 null 반환
             it.id == overlay.tag
         }
         selectedModel?.let {

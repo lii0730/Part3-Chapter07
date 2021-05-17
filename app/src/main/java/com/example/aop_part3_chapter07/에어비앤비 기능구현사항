@@ -14,3 +14,5 @@
 - BottomSheetView를 활용해서 예약가능 숙소 목록을 인터렉션하게 표시할 수 있음
 - ViewPager2를 활용해서 현재 보고있는 숙소를 표시할 수 있음
 - 숙소버튼을 눌러 현재 보고 있는 숙소를 앱 외부로 공유할 수 있음
+
+MapView 사용시 Activity / Fragment LifeCycle 과 같아야 한다.

@@ -15,6 +15,22 @@
       "lat" : 37.387749,
       "lng" : 126.653960,
       "imageUrl" : "https://i.picsum.photos/id/541/200/200.jpg?hmac=FPYg43H-9McYNZu4fnac6itnn3Ly9eOJRpZLLnyXuVY"
+    },
+    {
+      "id" : 3,
+      "title" : "강남역!! 위치 초근접 맥도날드!!",
+      "price" : "6,000원",
+      "lat" : 37.498841,
+      "lng" : 127.027643,
+      "imageUrl" : "https://i.picsum.photos/id/410/200/200.jpg?hmac=hVMLZXpDnTKOed7U0eNRwQvhs6LRl-g0XjEFRs4V3cU"
+    },
+    {
+      "id" : 4,
+      "title" : "테크노파크역!! 위치 초근접!!",
+      "price" : "90,000원",
+      "lat" : 37.382251,
+      "lng" : 126.656312,
+      "imageUrl" : "https://i.picsum.photos/id/907/200/200.jpg?hmac=SdeLZNONJ3CX-OB15hSXsCheWDC6yYac5N5VUJM7FIQ"
     }
   ]
 }
